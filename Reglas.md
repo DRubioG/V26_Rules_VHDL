@@ -50,7 +50,19 @@ type t_mem is array (0 to 100) of std_logic_vector(G_WIDTH-1 downto 0);
 ```
 
 ## Máquinas de estados
+Las máquinas de estados se tienen que definir indicando que son diferentes de otro tipo.
+- El type de las máquinas de estados tiene que incluir el nombre 'fsm' para saber que es una máquina de estados.
+- Los estados se definen en mayúsculas con el prefijo 'SM_'.
+- Y el registro que lleva la máquina de estados tiene que llevar el prefijo 're_'.
 
+``` VHDL
+type fsm is (
+    SM_IDLE,
+    SM_START,
+    SM_FINISH
+);
+signal re_state : fsm;
+```
 
 ## process
 Los process tienen que llevar el nombre especifico de lo que hacen en la definición.
